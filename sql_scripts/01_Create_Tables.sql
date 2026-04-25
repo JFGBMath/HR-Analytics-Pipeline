@@ -1,40 +1,45 @@
--- Create database
 CREATE DATABASE HR_Analytics_DW;
 GO
 
 USE HR_Analytics_DW;
 GO
 
--- Dimension tables
-CREATE TABLE dimEmployee (
-    EmployeeID INT PRIMARY KEY,
-    FirstName NVARCHAR(50),
-    LastName NVARCHAR(50),
-    Gender NVARCHAR(10),
+DROP TABLE IF EXISTS HR_Attrition_Fact;
+
+CREATE TABLE HR_Attrition_Fact (
+    EmployeeID INT,
     Age INT,
-    MaritalStatus NVARCHAR(20),
-    EducationField NVARCHAR(50)
-);
-
-CREATE TABLE dimDepartment (
-    DepartmentID INT IDENTITY(1,1) PRIMARY KEY,
-    DepartmentName NVARCHAR(50) UNIQUE
-);
-
-CREATE TABLE dimJobRole (
-    JobRoleID INT IDENTITY(1,1) PRIMARY KEY,
-    JobRoleName NVARCHAR(50) UNIQUE
-);
-
--- Fact table
-CREATE TABLE factAttrition (
-    FactID INT IDENTITY(1,1) PRIMARY KEY,
-    EmployeeID INT FOREIGN KEY REFERENCES dimEmployee(EmployeeID),
-    DepartmentID INT FOREIGN KEY REFERENCES dimDepartment(DepartmentID),
-    JobRoleID INT FOREIGN KEY REFERENCES dimJobRole(JobRoleID),
-    AttritionFlag BIT,
-    MonthlyIncome DECIMAL(10,2),
-    YearsAtCompany INT,
+    Attrition VARCHAR(10),
+    BusinessTravel VARCHAR(50),
+    DailyRate INT,
+    Department VARCHAR(50),
+    DistanceFromHome INT,
+    Education INT,
+    EducationField VARCHAR(50),
+    EmployeeCount INT,
+    EnvironmentSatisfaction INT,
+    Gender VARCHAR(10),
+    HourlyRate INT,
+    JobInvolvement INT,
+    JobLevel INT,
+    JobRole VARCHAR(50),
+    JobSatisfaction INT,
+    MaritalStatus VARCHAR(50),
+    MonthlyIncome INT,
+    MonthlyRate INT,
+    NumCompaniesWorked INT,
+    Over18 VARCHAR(5),
+    OverTime VARCHAR(5),
+    PercentSalaryHike INT,
     PerformanceRating INT,
-    DistanceFromHome INT
+    RelationshipSatisfaction INT,
+    StandardHours INT,
+    StockOptionLevel INT,
+    TotalWorkingYears INT,
+    TrainingTimesLastYear INT,
+    WorkLifeBalance INT,
+    YearsAtCompany INT,
+    YearsInCurrentRole INT,
+    YearsSinceLastPromotion INT,
+    YearsWithCurrManager INT
 );
