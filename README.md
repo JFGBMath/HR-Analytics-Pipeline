@@ -41,7 +41,7 @@ HR-Analytics-Pipeline/
 └── README.md
 
 
-## Setup Instructions (for recruiter / reviewer)
+## Setup Instructions 
 1. Install SQL Server Developer Edition + SSMS.
 2. Install Visual Studio Community with SSDT (includes SSIS/SSRS).
 3. Clone this repo.
@@ -59,7 +59,7 @@ HR-Analytics-Pipeline/
 - 📊 Tableau dashboard: Attrition by department & performance rating.
 - 📄 SSRS report: Employee-level attrition list with parameters.
 
-## What This Shows for the Flex Role
+## What This Shows
 - **SQL Server**: Advanced queries, optimization, data modeling.
 - **SSIS/ETL**: Automated pipeline from CSV to warehouse.
 - **SSRS/Tableau**: Actionable insights for HR stakeholders.
@@ -68,7 +68,7 @@ HR-Analytics-Pipeline/
 ## Author
 Jesús Fernando Gómez Brito  
 [LinkedIn](https://www.linkedin.com/in/jes%C3%BAs-fernando-g%C3%B3mez-brito-02a895279/)  
-Current Data Analyst at Flex – applying for internal HR Data Analytics role.
+
 
 ## Progress
 - [x] Repository setup
