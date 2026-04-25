@@ -75,8 +75,8 @@ Jesús Fernando Gómez Brito
 - [x] Folder structure
 - [x] README
 - [x] Dataset downloaded
-- [ ] SQL tables created
-- [ ] SSIS ETL built
+- [x] SQL tables created
+- [x] SSIS ETL built
 - [ ] Tableau dashboard
 - [ ] SSRS report
 - [ ] Final documentation & screenshots
