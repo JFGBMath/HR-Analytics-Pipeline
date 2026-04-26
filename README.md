@@ -75,8 +75,12 @@ Jesús Fernando Gómez Brito
 - [x] Folder structure
 - [x] README
 - [x] Dataset downloaded
-- [x] SQL tables created
+- [x] SQL tables created (star schema: 3 dims + 1 fact)
 - [x] SSIS ETL built
-- [ ] Tableau dashboard
+- [x] Star schema populated (1,470 employees)
+- [x] Performance indexes created
+- [x] Advanced SQL queries (CTEs, window functions)
+- [x] Stored procedures for SSRS (sp_AttritionByDepartment, sp_EmployeesAtRisk)
 - [ ] SSRS report
+- [ ] Tableau dashboard
 - [ ] Final documentation & screenshots
