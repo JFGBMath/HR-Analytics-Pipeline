@@ -81,6 +81,6 @@ Jesús Fernando Gómez Brito
 - [x] Performance indexes created
 - [x] Advanced SQL queries (CTEs, window functions)
 - [x] Stored procedures for SSRS (sp_AttritionByDepartment, sp_EmployeesAtRisk)
-- [ ] SSRS report
+- [ ] SSRS report (WIP — department table done, chart and risk table pending)
 - [ ] Tableau dashboard
 - [ ] Final documentation & screenshots
