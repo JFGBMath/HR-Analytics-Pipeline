@@ -97,8 +97,26 @@ HR-Analytics-Pipeline/
 - [x] Stored procedures (sp_AttritionByDepartment, sp_EmployeesAtRisk)
 - [x] SSRS paginated report (department table + risk list + parameters)
 - [x] Tableau dashboard (published to Tableau Public)
-- [ ] Final documentation & screenshots
+- [x] Final documentation & screenshots
 
 ## Author
 Jesús Fernando Gómez Brito  
 [LinkedIn](https://www.linkedin.com/in/jes%C3%BAs-fernando-g%C3%B3mez-brito-02a895279/)
+
+
+## Sample Outputs
+
+### Architecture
+![Pipeline Architecture](docs/06_architecture.png)
+
+### SSIS Pipeline
+![SSIS Data Flow](docs/02_ssis_pipeline.png)
+
+### SSRS Report
+![SSRS Paginated Report](docs/03_ssrs_report.png)
+
+### Tableau Dashboard
+![Tableau Dashboard](docs/04_tableau_dashboard.png)
+
+### SQL Advanced Queries
+![SQL Results](docs/05_sql_advanced.png)
