@@ -1,6 +1,3 @@
-# HR-Analytics-Pipeline
-End-to-end HR data pipeline using SQL Server, SSIS, SSRS, and Tableau. Demonstrates ETL, data modeling, reporting, and analytics for workforce attrition insights.
-
 # HR Analytics Pipeline – Workforce Attrition & Performance
 
 ## Overview
@@ -17,58 +14,75 @@ This pipeline delivers a reusable, automated solution to answer these questions.
 ## Tools & Technologies
 - **SQL Server** (database, T-SQL, indexing, stored procedures)
 - **SSIS** (ETL from CSV to SQL)
-- **SSRS** (paginated reports for operations)
-- **Tableau** (interactive dashboards)
+- **SSRS / Power BI Report Builder** (paginated reports for operations)
+- **Tableau Public** (interactive dashboards)
 - **GitHub** (version control, portfolio)
 
 ## Dataset
 Source: [IBM HR Analytics Attrition Dataset](https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset)  
 - 1,470 employees, 35 features
-- Includes: Attrition (Yes/No), Department, JobRole, MonthlyIncome, YearsAtCompany, PerformanceRating, Age, DistanceFromHome.
+- Includes: Attrition (Yes/No), Department, JobRole, MonthlyIncome, YearsAtCompany, PerformanceRating, Age, DistanceFromHome
+
+## Live Dashboard
+🔗 [View Interactive Dashboard on Tableau Public](https://public.tableau.com/views/HR-Workforce-Attrition-Dashboard/HRAttritionDashboard?:language=es-ES&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
 ## Architecture
 datasets/*.csv → SSIS (Data Flow) → SQL Server (Staging → Dim/Fact) → SSRS / Tableau
 
-
 ## Repository Structure
 HR-Analytics-Pipeline/
-├── datasets/ # Raw CSV (IBM HR data)
-├── sql_scripts/ # Table creation, indexes, stored procs
-├── ssis_packages/ # .dtsx ETL package
-├── ssrs_reports/ # .rdl report
-├── tableau_dashboards/ # .twb workbook
-├── docs/ # Screenshots, architecture diagram
+├── datasets/               # Raw CSV + Tableau export CSV
+├── sql_scripts/            # Table creation, indexes, stored procs
+│   ├── 01_Populate_Star_Schema.sql
+│   ├── 02_Indexes.sql
+│   ├── 03_Advanced_Queries.sql
+│   └── 04_Stored_Procedures.sql
+├── ssis_packages/          # .dtsx ETL package
+├── ssrs_reports/           # .rdl paginated report
+├── tableau_dashboards/     # .twbx workbook
+├── docs/                   # Screenshots, architecture diagram
 └── README.md
 
-
-## Setup Instructions 
-1. Install SQL Server Developer Edition + SSMS.
-2. Install Visual Studio Community with SSDT (includes SSIS/SSRS).
-3. Clone this repo.
-4. Run `sql_scripts/01_Create_Tables.sql` to create database and schema.
-5. Open the SSIS project (`.dtproj`) – load data from `datasets/` to SQL.
-6. Deploy SSRS report or open Tableau workbook.
-
 ## Key SQL Techniques Demonstrated
-- Window functions (`ROW_NUMBER()`, `LAG()` for trend)
-- CTE for department-wise aggregation
-- Indexed views for performance
-- Stored procedure with transaction handling
+- Window functions (`ROW_NUMBER()`, `NTILE()`, `LAG()`, `RANK()`)
+- Nested CTEs for department-wise attrition aggregation
+- Covering indexes for reporting performance
+- Stored procedures with optional parameters for SSRS datasets
 
-## Sample Outputs (to be added)
-- 📊 Tableau dashboard: Attrition by department & performance rating.
-- 📄 SSRS report: Employee-level attrition list with parameters.
+## Dashboard Highlights
+- **Attrition by Department**: Sales leads at 20.6%, HR at 19%, R&D at 13.8%
+- **Attrition by Job Role**: Sales Representatives highest at 39.8%
+- **Risk Profile**: Young, low-income, short-tenure employees flagged as High risk
+- **Interactive filter**: Click any department to filter all charts
+
+## SSRS Report Features
+- Paginated report with department summary table
+- Employee risk list with High/Medium/Low classification
+- Parameters: filter by Department and Risk Level
+- Export to PDF and Excel
+
+## Setup Instructions
+1. Install SQL Server Developer Edition + SSMS
+2. Install Visual Studio Community with SSDT (SSIS)
+3. Install Power BI Report Builder
+4. Install Tableau Public
+5. Clone this repo
+6. Run `sql_scripts/01_Populate_Star_Schema.sql`
+7. Run scripts 02, 03, 04 in order
+8. Open SSIS project (`.dtproj`) to load data from `datasets/`
+9. Open `ssrs_reports/AttritionReport.rdl` in Power BI Report Builder
+10. Open `tableau_dashboards/HR_Attrition_Dashboard.twbx` in Tableau Public
+
+## Sample Outputs
+- 📊 [Tableau Dashboard](https://public.tableau.com/views/HR-Workforce-Attrition-Dashboard/HRAttritionDashboard?:language=es-ES&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link) — Attrition by department, job role, and risk profile
+- 📄 SSRS Report — Paginated employee risk list with parameters
 
 ## What This Shows
-- **SQL Server**: Advanced queries, optimization, data modeling.
-- **SSIS/ETL**: Automated pipeline from CSV to warehouse.
-- **SSRS/Tableau**: Actionable insights for HR stakeholders.
-- **Coordination**: Project structured as if leading a small team (documentation, versioning, reusable components).
-
-## Author
-Jesús Fernando Gómez Brito  
-[LinkedIn](https://www.linkedin.com/in/jes%C3%BAs-fernando-g%C3%B3mez-brito-02a895279/)  
-
+- **SQL Server**: Advanced queries, star schema, optimization, stored procedures
+- **SSIS/ETL**: Automated pipeline from CSV to data warehouse
+- **SSRS**: Paginated operational reports with parameters
+- **Tableau**: Interactive executive dashboard with filters
+- **Coordination**: Project structured as if leading a small analytics team
 
 ## Progress
 - [x] Repository setup
@@ -80,7 +94,11 @@ Jesús Fernando Gómez Brito
 - [x] Star schema populated (1,470 employees)
 - [x] Performance indexes created
 - [x] Advanced SQL queries (CTEs, window functions)
-- [x] Stored procedures for SSRS (sp_AttritionByDepartment, sp_EmployeesAtRisk)
-- [x] SSRS report (bar chart + department table + employee risk table + parameters)
-- [ ] Tableau dashboard
+- [x] Stored procedures (sp_AttritionByDepartment, sp_EmployeesAtRisk)
+- [x] SSRS paginated report (department table + risk list + parameters)
+- [x] Tableau dashboard (published to Tableau Public)
 - [ ] Final documentation & screenshots
+
+## Author
+Jesús Fernando Gómez Brito  
+[LinkedIn](https://www.linkedin.com/in/jes%C3%BAs-fernando-g%C3%B3mez-brito-02a895279/)
